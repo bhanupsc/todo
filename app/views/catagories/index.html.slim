@@ -1,0 +1,28 @@
+.panel.panel-primary
+	.pull-right 
+	  a.btn.btn-default.btn-xs.add-btn href="/catagories/new" Add New Catagory
+	.panel-heading Catagory List
+.panel-body 
+    div.table-responsive
+      table.table.table-bordered
+        thead
+          tr
+            th Sr No.
+            th Name
+            th Action
+   
+        tbody
+          - if @catagories.present?
+            - count = 0
+            - @catagories.each do |catagory|
+              tr
+                td = count+=1
+                td = catagory.name
+                td
+                	= link_to 'Delete', catagory_path(catagory), class: "btn btn-xs btn-danger mr-10", method: :delete, data: { confirm: 'Are you sure?' }
+                	= link_to 'Tasks', catagory_tasks_path(catagory), class: "btn btn-xs btn-primary"
+
+          - else
+            tr 
+              td colspan="3" No Record Found
+

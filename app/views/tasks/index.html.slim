@@ -1,0 +1,66 @@
+.panel.panel-primary
+	.pull-right 
+	  = link_to 'Add Task', new_catagory_task_path(@catagory), class: " btn btn-default btn-xs add-btn"
+	.panel-heading Task List of #{@catagory.name}
+.panel-body 
+    div.table-responsive
+      table.table.table-bordered
+        thead
+          
+           
+        tbody
+          - if @tasks.present?
+            .list-group#tasks data-url="#{sort_catagory_tasks_path(@catagory)}"
+            	- @tasks.each do |task|
+            		li.list-group-item href="#" id="#{dom_id(task)}" 
+            			= task.name
+            			span.pull-right
+            				- if task.status == "todo"
+            					input type="checkbox" class="update-status #{task.id}" task-id="#{task.id}" data-toggle="tooltip" title="mark as complete"
+            				- else
+            					input type="checkbox" checked="" disabled=""
+            			span.pull-right.mr-10 = task.due_date.present? ? task.due_date : "NA"
+   
+          - else
+            tr 
+              td colspan="2" No Record Found
+
+
+
+
+javascript:
+	
+	$(document).on("turbolinks:load", function() {	 
+		$('#tasks').sortable({
+			update: function(){
+				$.ajax({
+					url: $(this).data("url"),
+					type: "PUT",
+					data: $(this).sortable('serialize'),
+				}).done(function(result) {
+  				console.log(result);
+  			});
+			}
+		});
+	});
+
+
+	$(document).on('change', '.update-status', function(){
+		if (this.checked){
+			var id = $(this).attr('task-id');
+			var catagoryId = "#{@catagory.id}"
+			$.ajax({
+				url: "/catagories/"+catagoryId+"/tasks/"+id+"/update_status",
+				type: "PUT",
+				success: function(response) {
+					console.log(response);
+					if (response.success){
+						$('.'+id).prop("disabled", true);
+					}
+
+				}
+			});
+		}
+		
+	});
+

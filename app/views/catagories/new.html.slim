@@ -1,0 +1,22 @@
+section.login-screen
+  .container
+    .col-md-8
+      .panel.panel-primary
+        .panel-heading Add Catagory
+        .panel-body
+          .row
+            .col-md-8.col-md-offset-2.m-auto.pt-80.pb-80
+              .row.def-bg-trans.d-flex.align-items-center
+                .col-md-12
+                  .form-design
+                    h3.text-center
+                      span.def-a
+                        | Add Catagory
+                    = form_for @catagory do |f|
+                      .field.form-group
+                        label Name
+                        br
+                        = f.text_field :name, autofocus: true, class:"form-control",  required: ""
+                      .actions.form-group
+                        = f.submit "Add",class:"btn btn-primary btn-block"
+                   

@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ 	.mr-10{
+ 		margin-right: 10px;
+ 	}
+
+	#flash_messages{
+	  position: absolute;
+    width: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+	}
+
+	.login-screen{
+	/*background-image: image-url('bg.jpeg');*/
+	height: 100vh;
+	background-attachment: fixed;
+	background-position: center;
+	overflow: auto;
+	.logo-area{
+		background: radial-gradient(circle, white, #272727);
+		h1{
+		height: 540px;
+		line-height: 540px;
+		margin: 0;
+		}
+	}
+	.form-design{
+		padding: 40px;
+		label{
+			margin-bottom: 0;
+			color: #4a4a4a;	
+		}
+	}
+	.link-d{
+		a{
+			color: #404040;
+			text-decoration: none;
+		}
+		a:hover{
+			color: #1e638c;
+		}
+	}
+}
+
+.mt-100{
+	margin-top: 100px;
+}
+
+
+
+#flash_messages {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 380px;
+	margin: auto;
+	padding: 10px 0;
+	z-index: 99;
+}
+
+.container-fluid {
+	padding: 0px !important;
+}
+
+.navbar-inverse {
+    background-color: #4682B4;
+    border-color: #4682B4;
+    border-radius: 0px;
+}
+
+a.navbar-brand {
+    color: white !important;
+    padding-left: 25px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+}
+
+.row.content {height: 550px}
+
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+
+.add-btn{
+	margin-top: 9px;
+  margin-right: 12px;
+}
+
+.text-center{
+	text-align: center;
+}
+    
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+  .row.content {height: auto;} 
+}
+
+.alert{
+	  position: absolute;
+    z-index: 999999;
+    left: 0;
+    top: 16px;
+    right: 0;
+    margin: auto;
+    width: 30%;
+}
+
+.mr-5{
+	margin-right: 5px;
+}
+
+.form-loader{
+  position: absolute;
+  background: #f7f7f736;
+  left: 0;
+  right: 0;
+  min-height: 256px;
+  text-align: center;
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
