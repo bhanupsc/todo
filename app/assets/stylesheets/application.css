@@ -27,6 +27,10 @@
     margin-top: 10px;
 	}
 
+	.alert{
+		width: 100% !important;
+	}
+
 	.login-screen{
 	/*background-image: image-url('bg.jpeg');*/
 	height: 100vh;
